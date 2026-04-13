@@ -19,4 +19,26 @@
     <servlet-name>Jersey</servlet-name>
     <url-pattern>/api/*</url-pattern>
   </servlet-mapping>
+  
+  <!-- Basic Authentication -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>API</web-resource-name>
+      <url-pattern>/api/*</url-pattern>
+      <http-method>POST</http-method>
+      <http-method>GET</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>user</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>TranslatorRealm</realm-name>
+  </login-config>
+  
+  <security-role>
+    <role-name>user</role-name>
+  </security-role>
 </web-app>
